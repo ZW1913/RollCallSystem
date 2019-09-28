@@ -30,7 +30,6 @@ namespace WinformControlUse
             btnStop.Visible = false;
             btnLoadStu.Enabled = true;
             sortBtn.Visible = false;
-            autoButton.Visible = false;
         }
 
         void setControlVisible()
@@ -38,7 +37,6 @@ namespace WinformControlUse
             btnStart.Visible = true;
             btnStop.Visible = true;
             btnLoadStu.Visible = false;
-            autoButton.Visible = true;
             sortBtn.Visible = true;
         }
 
@@ -69,9 +67,6 @@ namespace WinformControlUse
             dgvStuList.DataSource = dt;
 
             setControlVisible();
-
-            //显式学生人数
-            this.studentsNum.Text = "学生人数：" + stuDao.getStudentRecordsNums();
 
         }
 
@@ -175,17 +170,5 @@ namespace WinformControlUse
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            timerCallName.Start();
-            Thread thread3 = new Thread(() => {
-                string curTime = (DateTime.Now.Second + 3).ToString();
-                while (DateTime.Now.Second.ToString() != curTime)
-                {
-                }
-                timerCallName.Stop();
-            });
-            thread3.Start();
-        }
     }
 }
